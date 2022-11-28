@@ -2,9 +2,9 @@ name: l80 example - GitHub Action flow to Docker hub with local cache & multi-st
 
 on:
   workflow_dispatch:
-#  push:
-#    branches:
-#      - 'main'
+    push:
+      branches:
+        - 'main'
 
 jobs:
   build-push-images-with-cache:
@@ -24,8 +24,8 @@ jobs:
       - name: Login to DockerHub
         uses: docker/login-action@v2
         with:
-          username: ${{secrets.USER_NAME}}
-          password: ${{secrets.ACCESS_TOKEN}}
+          username: ${{ secrets.USER_NAME }}
+          password: ${{ secrets.ACCESS_TOKEN }}
 
       - name: Cache Docker layers
         uses: actions/cache@v2
